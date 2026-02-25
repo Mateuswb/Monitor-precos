@@ -30,8 +30,8 @@ O foco é:
 
 ### 🚀 Clonar o repositório
 ```bash
-git clone https://github.com/Mateuswb/Monitor-precos.git
-cd monitor_precos
+git clone https://github.com/Mateuswb/monitor-precos.git
+cd monitor-precos
 ```
 ---
 
