@@ -30,7 +30,7 @@ O foco é:
 
 ### 🚀 Clonar o repositório
 ```bash
-git clone https://github.com/seu-usuario/monitor_precos.git
+git clone https://github.com/Mateuswb/Monitor-precos.git
 cd monitor_precos
 ```
 ---
@@ -53,6 +53,6 @@ python app/main.py
 ```
 ---
 📝 Licença  
-Este projeto está licenciado sob a **[MIT]([https://opensource.org/licenses/MIT](https://github.com/Mateuswb/Monitor-precos/blob/main/LICENSE))**.
+Este projeto está licenciado sob a **[MIT](https://github.com/Mateuswb/Monitor-precos/blob/main/LICENSE)**.
 
 
