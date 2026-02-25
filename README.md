@@ -1,14 +1,16 @@
 # 🛒 Monitor de Preços — Automação de Produtos
 
-Python  
-License: MIT
+![Python](https://img.shields.io/badge/Python-3.10+-blue?logo=python) ![Selenium](https://img.shields.io/badge/Selenium-Automation-green) ![License](https://img.shields.io/badge/License-MIT-yellow)
 
-Um sistema em Python que automatiza a pesquisa e acompanhamento de produtos em sites de e-commerce como o Mercado Livre. Ideal para monitorar preços, comparar produtos e manter histórico sem esforço manual.
+Python  
+License: [MIT](https://opensource.org/licenses/MIT)
+
+Um sistema em Python que automatiza a pesquisa e acompanhamento de produtos em sites de e-commerce como o **Mercado Livre**. Ideal para monitorar preços, comparar produtos e manter histórico sem esforço manual.
 
 ---
 
 🔍 **Visão Geral**  
-O Monitor de Preços coleta informações de produtos automaticamente, incluindo **título, preço e link**, filtrando resultados relevantes e evitando duplicados. Ele salva todas as buscas em um arquivo **JSON** para consulta futura, oferecendo uma forma prática de acompanhar produtos e suas variações de preço.
+O **Monitor de Preços** coleta informações de produtos automaticamente, incluindo **título, preço e link**, filtrando resultados relevantes e evitando duplicados. Ele salva todas as buscas em um arquivo **JSON** para consulta futura, oferecendo uma forma prática de acompanhar produtos e suas variações de preço.
 
 O foco é:  
 - Automatizar pesquisas de produtos sem precisar acessar manualmente os sites.  
@@ -28,21 +30,22 @@ O foco é:
 
 🛠 **Como usar / Setup**  
 
-1. **Clonar o repositório**
+Execute tudo em sequência no terminal:
+
 ```bash
-git clone <link-do-repositorio>
+# Clonar o repositório
+git clone https://github.com/seu-usuario/monitor_precos.git
 cd monitor_precos
 
+# Criar e ativar ambiente virtual
 python -m venv venv
 venv\Scripts\activate    # Windows
 # source venv/bin/activate  # Linux/macOS
 
+# Instalar dependências
 pip install -r requirements.txt
 
+# Rodar o sistema
 python -m app.main
 # ou
 python app/main.py
-
-📝 Licença
-Este projeto está licenciado sob a MIT License.
- [MIT](https://opensource.org/licenses/MIT)
