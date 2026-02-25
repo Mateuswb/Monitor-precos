@@ -6,7 +6,7 @@ Um sistema em Python que automatiza a pesquisa e acompanhamento de produtos em s
 
 ## 🔍 Visão Geral
 
-O Monitor de Preços coleta informações de produtos automaticamente, incluindo **título, preço e link**, filtrando resultados relevantes e evitando duplicados. Ele salva todas as buscas em um arquivo **JSON** para consulta futura.
+O Monitor de Preços coleta informações de produtos automaticamente, incluindo **título, preço e link**, filtrando resultados relevantes e evitando duplicados. Ele salva todas as buscas em um arquivo **CSV** para consulta futura.
 
 O foco é:  
 - Automatizar pesquisas de produtos sem precisar acessar manualmente os sites.  
@@ -21,11 +21,11 @@ O foco é:
 - ✅ Filtragem inteligente por relevância e correspondência de título  
 - 💰 Ordenação por preço próximo ao valor máximo definido  
 - ⚠️ Evita produtos duplicados  
-- 💾 Histórico de produtos salvo em `data/produtos.json`  
+- 💾 Histórico de produtos salvo em `historico.csv`  
 
 ---
 
-## 🛠 Como usar / Setup
+## 🛠 Como usar / Configurações
 
 
 ### 🚀 Clonar o repositório
