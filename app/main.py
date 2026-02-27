@@ -1,10 +1,10 @@
 from historico import salvar_historico
-import threading
-import json
-from selenium import webdriver
 from search import pesquisar_produto
 from gui import MonitorGUI
+from selenium import webdriver
 import tkinter as tk
+import threading
+import json
 
 def buscar_produtos_thread(gui):
     gui.root.iconify()
@@ -20,13 +20,19 @@ def buscar_produtos_thread(gui):
     for produto in produtos:
         r = pesquisar_produto(produto["busca"], driver, produto["preco_max"])
         if not r:
-            resultados.append({"produto": produto["nome"], "titulo": "Nenhum resultado",
+            resultados.append({"produto": produto["nome"], "preco_base": "", "titulo": "Nenhum resultado",
                                "preco": "", "status": "", "link": ""})
         else:
             for p in r:
                 status = "✅ Abaixo do preço!" if p["preco"] <= produto["preco_max"] else "❌ Acima do preço"
-                resultados.append({"produto": produto["nome"], "titulo": p["titulo"],
-                                   "preco": p["preco"], "status": status, "link": p["link"]})
+                resultados.append({
+                    "produto": produto["nome"],
+                    "preco_base": produto["preco_max"],
+                    "titulo": p["titulo"],
+                    "preco": p["preco"],
+                    "status": status,
+                    "link": p["link"]
+                })
 
     driver.quit()
     gui.root.deiconify()
@@ -43,7 +49,15 @@ if __name__ == "__main__":
     with open("data/produtos.json", "r", encoding="utf-8") as f:
         produtos = json.load(f)
     for produto in produtos:
-        gui.tree.insert("", "end", values=(produto["nome"], "", "", "", ""))
+        gui.tree.insert("", 
+                        "end", 
+                        values=(produto["nome"], 
+                        f"R$ {produto['preco_max']:.2f}", 
+                        "", 
+                        "", 
+                        "")
+                    )
+
 
     gui.btn_buscar.config(command=lambda: buscar_produtos(gui))
 

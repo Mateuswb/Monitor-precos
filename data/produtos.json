@@ -8,15 +8,5 @@
     "nome": "RTX 4060",
     "busca": "rtx 4060 8gb",
     "preco_max": 4000
-  },
-  {
-    "nome": "SSD 1TB",
-    "busca": "ssd 1tb",
-    "preco_max": 85
-  },
-  {
-    "nome": "óculos natação",
-    "busca": "oculos natarção masculino",
-    "preco_max": 90
   }
 ]

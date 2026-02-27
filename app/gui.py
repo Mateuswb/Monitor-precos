@@ -26,20 +26,22 @@ class MonitorGUI:
                   foreground=[("selected", "white")])
 
         # Tabela
-        columns = ("Produto", "Título", "Preço", "Status", "Link")
+        columns = ("Produtos", "Preço base", "Título", "Preço do produto", "Status", "Link")
         self.tree = ttk.Treeview(root, columns=columns, show="headings")
         for col in columns:
             self.tree.heading(col, text=col)
-            if col == "Produto":
-                self.tree.column(col, width=150, anchor="w")
-            elif col == "Preço":
-                self.tree.column(col, width=120, anchor="center")
+            if col == "Produtos":
+                self.tree.column(col, width=80, anchor="w")
+            elif col == "Preço base":
+                self.tree.column(col, width=70, anchor="center")
+            elif col == "Preço do produto":
+                self.tree.column(col, width=90, anchor="center")
             elif col == "Link":
                 self.tree.column(col, width=0, stretch=False)
             elif col == "Status":
                 self.tree.column(col, width=150, anchor="center")
             else:
-                self.tree.column(col, width=300, anchor="w")
+                self.tree.column(col, width=360, anchor="w")
 
         self.tree.tag_configure("green", foreground="green")
         self.tree.tag_configure("red", foreground="red")
@@ -54,13 +56,23 @@ class MonitorGUI:
     def atualizar_tabela(self, resultados):
         self.tree.delete(*self.tree.get_children())
         for r in resultados:
-            self.tree.insert("", "end", values=(r["produto"], r["titulo"],
-                                                f"R$ {r['preco']}", r["status"], r["link"]),
-                             tags=("green" if "✅" in r["status"] else "red",))
+            self.tree.insert(
+            "",
+            "end",
+            values=(
+                r["produto"],
+                f"R$ {r['preco_base']:.2f}",
+                r["titulo"],
+                f"R$ {r['preco']}" if r["preco"] else "",
+                r["status"],
+                r["link"]
+            ),
+            tags=("green" if "✅" in r["status"] else "red",)
+        )
 
-    def abrir_link(self, event):
+    def abrir_link(self, event): 
         item = self.tree.selection()
         if item:
-            link = self.tree.item(item, "values")[4]
+            link = self.tree.item(item, "values")[5]
             if link:
                 webbrowser.open(link)
